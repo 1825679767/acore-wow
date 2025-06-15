@@ -2000,6 +2000,7 @@ public:
     void ApplyManaRegenBonus(int32 amount, bool apply);
     void ApplyHealthRegenBonus(int32 amount, bool apply);
     void UpdateManaRegen();
+    void UpdateEnergyRegen();
     void UpdateRuneRegen(RuneType rune);
 
     [[nodiscard]] ObjectGuid GetLootGUID() const { return m_lootGuid; }
@@ -2582,7 +2583,6 @@ public:
     [[nodiscard]] bool CanFly() const override { return m_movementInfo.HasMovementFlag(MOVEMENTFLAG_CAN_FLY); }
     [[nodiscard]] bool CanEnterWater() const override { return true; }
 
-    // OURS
     // saving
     void AdditionalSavingAddMask(uint8 mask) { m_additionalSaveTimer = 2000; m_additionalSaveMask |= mask; }
     // arena spectator

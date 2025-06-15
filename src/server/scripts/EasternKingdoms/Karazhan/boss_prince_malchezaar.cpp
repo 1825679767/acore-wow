@@ -127,7 +127,7 @@ struct boss_malchezaar : public BossAI
 
             scheduler.Schedule(20s, 30s, [this](TaskContext context)
             {
-                DoCastRandomTarget(SPELL_AMPLIFY_DAMAGE, 1);
+                DoCastRandomTarget(SPELL_AMPLIFY_DAMAGE, 0, 0.0f, true, false, false);
                 context.Repeat();
             }).Schedule(20s, [this](TaskContext context)
             {
@@ -263,6 +263,20 @@ struct boss_malchezaar : public BossAI
                 }
             }
         }
+    }
+
+    void UpdateAI(uint32 diff) override
+    {
+        scheduler.Update(diff, std::bind(&BossAI::DoMeleeAttackIfReady, this));
+
+        if (me->GetDistance2d(-10944.0f, -2031.0f) > 92.0f) // reset the boss when pull out the hall
+        {
+            EnterEvadeMode();
+            return;
+        }
+
+        if (!UpdateVictim())
+            return;
     }
 
     private:
