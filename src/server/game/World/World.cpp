@@ -1037,6 +1037,16 @@ void World::SetInitialWorldSettings()
 
     METRIC_EVENT("events", "World initialized", "World Initialized In " + std::to_string(startupDuration / 60000) + " Minutes " + std::to_string((startupDuration % 60000) / 1000) + " Seconds");
 
+    LOG_INFO("server.loading", "██╗    ██╗██╗   ██╗ ██████╗ ██████╗ ██████╗ ███████╗");
+    LOG_INFO("server.loading", "██║    ██║╚██╗ ██╔╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+    LOG_INFO("server.loading", "██║ █╗ ██║ ╚████╔╝ ██║     ██║   ██║██████╔╝█████╗");
+    LOG_INFO("server.loading", "██║███╗██║  ╚██╔╝  ██║     ██║   ██║██╔══██╗██╔══╝");
+    LOG_INFO("server.loading", "╚███╔███╔╝   ██║   ╚██████╗╚██████╔╝██║  ██║███████╗");
+    LOG_INFO("server.loading", " ╚══╝╚══╝    ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝");
+    LOG_INFO("server.loading", "     WYcore 7.0  -  WY交流群：738942437\n");
+    LOG_INFO("server.loading", "     飞翔熊猫整合编译版本，严禁用于任何商业用途\n");
+    LOG_INFO("server.loading", "     严禁使用本程序进行任何违法活动\n");
+
     if (sConfigMgr->isDryRun())
     {
         sMapMgr->UnloadAll();
